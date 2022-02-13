@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DepartmanPersonelYonetimi.Models.Departman>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">
+            @*Başlık*@ Yeni Departman sayfası
+        </h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                @*Detay*@ Buradan yeni bir departman oluşturabilir ve hazır da bulunan departmanları listeleyebilirsiniz.
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+</div>
+
+
+<p>
+    @Html.ActionLink("Yeni Departman", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmanAd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmanAd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DepartmanId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DepartmanId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DepartmanId })
+        </td>
+    </tr>
+}
+
+</table>

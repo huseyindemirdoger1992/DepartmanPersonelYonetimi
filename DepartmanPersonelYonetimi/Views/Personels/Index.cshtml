@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DepartmanPersonelYonetimi.Models.Personel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Departman.DepartmanAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonelAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonelSoyad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departman.DepartmanAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonelAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonelSoyad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PersonelId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PersonelId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PersonelId })
+        </td>
+    </tr>
+}
+
+</table>
